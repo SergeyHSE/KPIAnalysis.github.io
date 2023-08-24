@@ -1,1 +1,1 @@
-In the file .docx the full text of the project, the code is contained in the Data processing is presented in the 'TableTransfomationForPanelData'. The 'TableTransformation' file is simply a transformation of a table of a complex structure into a readable form.
+In the file .docx the full text of the project, the code is contained in the .R Data processing is presented in the 'TableTransfomationForPanelData'(PowerQuery). The 'TableTransformation' file is simply a transformation of a table of a complex structure into a readable form(PowerQuery).
