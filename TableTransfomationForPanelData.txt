@@ -1,0 +1,11 @@
+#Concatination
+let
+Source = Folder.Files("Path"),
+    #"Added a custom object" = Table.addColumn(Source, "Custom", each Excel.Workbook([Content])),
+    #"Expanded Custom element" = Table.ExpandTableColumn(#"Added Custom Object", "Custom", {"Name", "Data", "Item", "Kind", "Hidden"}, {"Name.1", "Data", "Item", "Kind", "Hidden"}),
+    #"Rows with applied filter" = Table.SelectRows(#"Expanded Custom element", each ([Name.1] = "LCD Volchanskoe" or [Name.1] = "LCD Zaluzhnoye" or [Name.1] = "LCD Cradle" or [Name.1] = "Petrovskoe residential complex" or [Name.1] = "LCD Shchuchye" or [Name.1] = "MTF Shchuchye")),
+    #"Expanded Data element" = Table.ExpandTableColumn(#"Rows with applied filter", "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28"}),
+    #"Deleted columns" = Table.RemoveColumns(#"Expanded Data Element",{"Content", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28", "Item", "Kind", "Hidden"}),
+    #"Rows with applied filter1" = Table.SelectRows(#"Deleted columns", each ([Column4] <> null))
+in
+#"Rows with applied filter1"
