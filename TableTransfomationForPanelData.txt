@@ -1,7 +1,7 @@
 #Initially, transformations were made from one of the tables of one of the sheets located in one of the books. #
 #These transformations were taken into the "CleaningData" function. And then all the tables were loaded using this function#
 #Data has been cleared, formats have been changed. The "ID" column has been added to sort by banchs into groups.#
-#And a date filter is applied at the end.#
+#And a date filter is applied at the end.#🐱‍👓
 
 let
 Source = Folder.Files(PATH),
